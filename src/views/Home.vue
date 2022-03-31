@@ -1,18 +1,38 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-row class="mt-12 mx-4">
+    <v-col>
+      <v-subheader>Main</v-subheader>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  name: "Home",
+  metaInfo: {
+    title: "",
+  },
+  middleware: "auth",
+  props: {},
+  components: {},
+  data: () => ({}),
+  computed: {},
+  watch: {},
+  // Hooks
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  methods: {},
+
+  // end Hooks
+};
 </script>
+
+<style lang="scss" scoped>
+@import "@/assets/scss/common/variables.scss";
+</style>

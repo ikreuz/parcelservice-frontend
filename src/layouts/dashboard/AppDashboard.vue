@@ -1,12 +1,15 @@
 <template>
-  <div id="" class="" data-theme="default">
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app dense> </v-app-bar>
+    <v-main id="" class="parcel-main">
+      <router-view> </router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: "Dashboard",
   metaInfo: {
     title: "",
   },
