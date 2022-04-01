@@ -25,4 +25,26 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-error  "vue-recaptcha-v3": "^2.0.1", =>  "vue-recaptcha-v3": "1.9.0",
+### Links
+- Solution URL: [https://github.com/ikreuz](https://github.com/ikreuz/parcelservice-frontend)
+- Live Site URL: [https://vercel.com](https://parcelservice-frontend.vercel.app/login)
+- 
+
+## My process
+
+work in progress
+
+### Built with
+
+- Vue js 2.0
+- Vuetify
+- 
+### What I learned
+
+## Author
+
+- Website - [Victor Cruz](https://github.com/ikreuz/)
+- Frontend Mentor - [@ikreuz](https://www.frontendmentor.io/profile/ikreuz)
+- 
+### Error
+"vue-recaptcha-v3": "^2.0.1" =>  "vue-recaptcha-v3": "1.9.0",
