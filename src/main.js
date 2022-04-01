@@ -7,6 +7,7 @@ import vuetify from "./plugins/vuetify";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import "@mdi/font/css/materialdesignicons.css";
 import "@/assets/scss/style.scss";
+import "@/assets/scss/login.scss";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import jsCookie from "js-cookie";

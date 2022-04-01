@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="" data-theme="default">
+  <div data-theme="default">
     <router-view />
   </div>
 </template>
@@ -8,7 +8,7 @@
 export default {
   name: "App",
   metaInfo: {
-    title: "",
+    title: "Parcel Service",
   },
   middleware: "auth",
   props: {},

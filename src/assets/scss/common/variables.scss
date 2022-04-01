@@ -1,2 +1,42 @@
 @import './colors.scss';
 @import './fonts.scss';
+
+
+$zindex__base: 10;
+$zindex__header: 980;
+$zindex__footer: 990;
+$zindex__dropdown: 1000;
+$zindex__sticky: 1020;
+$zindex__fixed: 1030;
+$zindex__popup: 1032;
+$zindex__fab-header: 1033;
+$zindex__fab-content: 1036;
+$zindex__fab: 1039;
+$zindex__overlay: 1040;
+$zindex__navigation: 1049;
+$zindex__to-top: 1050;
+$zindex__card-searchbox: 1059;
+$zindex__searchbox: 1060;
+$zindex__mobile: 1090;
+$zindex__drawer: 1099;
+$zindex__burger: 1100;
+$zindex__ribbon: 1200;
+$zindex__top: 1200;
+$zindex__snackbar: 1300;
+$zindex__offcanvas: 1900;
+$zindex__modal: 1900;
+$zindex__guide: 1939;
+$zindex__loader: 2900;
+$zindex__spinner: 3000;
+$zindex__widget: 3000;
+
+$break-xs: 480px;
+$break-sm: 768px;
+$tablet: $break-sm;
+$break-md: 1024px;
+$laptop: $break-md;
+$break-lg: 1200px;
+$notebook: $break-lg;
+$break-xl: 1440px;
+$desktop: $break-xl;
+$break-xxl: 1600px;

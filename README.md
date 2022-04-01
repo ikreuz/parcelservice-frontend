@@ -23,3 +23,6 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+error  "vue-recaptcha-v3": "^2.0.1", =>  "vue-recaptcha-v3": "1.9.0",

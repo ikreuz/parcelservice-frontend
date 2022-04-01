@@ -1,0 +1,43 @@
+.c-target {
+    flex: 1 1 auto;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    padding: 1rem !important;
+}
+
+.c-target-bg {
+    background-image: url("../img/background.svg");
+    min-height: 100%;
+    max-width: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.auth-panel {
+    display: flex !important;
+    align-self: center !important;
+
+    &--size {
+        margin: 0 !important;
+        width: 400px;
+        transition: 0.6s ease-in-out;
+    }
+
+}
+
+.auth-login-form {
+    margin-top: 2rem;
+}
+
+.auth-btn {
+    color: #fff !important;
+    width: 100%;
+    margin-bottom: .5rem;
+}

@@ -1,13 +1,18 @@
 <template>
-  <div>
-    <router-view />
-  </div>
+  <v-row class="mt-12 mx-4">
+    <v-col>
+      <v-subheader>Setting</v-subheader>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 export default {
-  name: "Login",
-  middleware: "",
+  name: "Setting",
+  metaInfo: {
+    title: "Setting",
+  },
+  middleware: "auth",
   props: {},
   components: {},
   data: () => ({}),
@@ -23,8 +28,11 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {},
+
   // end Hooks
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "@/assets/scss/common/variables.scss";
+</style>

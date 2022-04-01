@@ -1,7 +1,7 @@
 <template>
   <v-row class="mt-12 mx-4">
     <v-col>
-      <v-subheader>Main</v-subheader>
+      <v-subheader>Home</v-subheader>
     </v-col>
   </v-row>
 </template>
@@ -10,7 +10,7 @@
 export default {
   name: "Home",
   metaInfo: {
-    title: "",
+    title: "Home",
   },
   middleware: "auth",
   props: {},
