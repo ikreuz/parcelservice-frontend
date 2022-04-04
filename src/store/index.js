@@ -4,8 +4,9 @@ import Vuex from "vuex";
 import jsCookie from "js-cookie";
 import jsCrypt from "crypto-js";
 import createPersistedState from "vuex-persistedstate";
-//
-const auth = { accessToken: "apiServiceWithAjax" };
+import endpoints from "./endpoints";
+
+const auth = { accessToken: "tokenWithAjax" };
 
 Vue.use(Vuex);
 
@@ -20,20 +21,23 @@ export default new Vuex.Store({
   ],
   state: {
     drawer: false,
-    drawerMini: true,
+    sideDrawer: true,
     auth: null,
     user: null,
     authenticated: false,
     cookie: false,
     profile: {},
     customerProfile: {},
+    guardianEmployees: [],
+    guardianCustomers: [],
+    guardianRoles: [],
   },
   mutations: {
-    SET_DRAWER(state, payload) {
+    SET_MAIN_DRAWER(state, payload) {
       state.drawer = payload;
     },
-    SET_DRAWER_MINI(state, payload) {
-      state.drawerMini = payload;
+    SET_SIDE_DRAWER(state, payload) {
+      state.sideDrawer = payload;
     },
     SET_AUTH(state, payload) {
       state.auth = payload;
@@ -50,18 +54,29 @@ export default new Vuex.Store({
     SET_PROFILE(state, payload) {
       state.profile = payload;
     },
+    SET_GUARDIAN_EMPLOYEES(state, payload) {
+      state.guardianEmployees = payload;
+    },
+    SET_GUARDIAN_CUSTOMERS(state, payload) {
+      state.guardianCustomers = payload;
+    },
+    SET_GUARDIAN_ROLES(state, payload) {
+      state.guardianRoles = payload;
+    },
   },
   actions: {
-    axnDrawer({ commit }, payload) {
-      commit("SET_DRAWER", payload);
+    axnMainDrawer({ commit }, payload) {
+      commit("SET_MAIN_DRAWER", payload);
     },
-    axnDrawerMini({ commit }, payload) {
-      commit("SET_DRAWER_MINI", payload);
+    axnSideDrawer({ commit }, payload) {
+      commit("SET_SIDE_DRAWER", payload);
     },
     axnAuth({ commit }, payload) {
+      console.log(payload);
       commit("SET_AUTH", payload);
     },
     axnUser({ commit }, payload) {
+      console.log(payload);
       commit("SET_USER", payload);
     },
     axnAuthenticated({ commit }, payload) {
@@ -82,7 +97,21 @@ export default new Vuex.Store({
       commit("SET_COOKIE", payload);
     },
     axnProfile({ commit }, payload) {
+      console.log(payload);
       commit("SET_PROFILE", payload);
+    },
+    axnLogin({ commit }, payload) {
+      console.log(payload);
+      commit("SET_USER", payload);
+    },
+    axnGuardianEmployees({ commit }, payload) {
+      commit("SET_GUARDIAN_EMPLOYEES", payload);
+    },
+    axnGuardianRoles({ commit }, payload) {
+      commit("SET_GUARDIAN_ROLES", payload);
+    },
+    axnGuardianCustomers({ commit }, payload) {
+      commit("SET_GUARDIAN_CUSTOMERS", payload);
     },
   },
   getters: {
@@ -105,5 +134,5 @@ export default new Vuex.Store({
       return state.profile;
     },
   },
-  modules: {},
+  modules: { endpoints },
 });

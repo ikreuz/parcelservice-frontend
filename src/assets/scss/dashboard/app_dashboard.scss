@@ -1,0 +1,91 @@
+#mpm-app-si {
+    display: grid;
+    grid-template-rows: 48px 1fr;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+#h-si {
+    grid-row: 1/2;
+    width: 100%;
+}
+
+#c-si {
+    grid-row: 2/3;
+    padding: 0 !important;
+}
+
+#f-si {
+    grid-row: 3/4;
+    margin-left: 56px;
+    bottom: 0;
+    position: static;
+    width: 100%;
+    z-index: $zindex__footer;
+
+    @media (max-width: $break-sm) {
+        margin: 0 !important;
+    }
+}
+
+#appbar-si {
+    background: #fff;
+    height: 56px;
+    position: fixed !important;
+    z-index: $zindex__navigation !important;
+}
+
+.c-cloud-content {
+    padding: 4rem 1rem 1rem 1rem;
+
+    @media (max-width: $break-sm) {
+        padding: 4rem 1rem 1rem 0;
+    }
+}
+
+.c-cloud-drawer-mini {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+
+    @media (max-width: $break-sm) {
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+    }
+}
+
+.c-portal-main {
+    margin-left: 56px;
+    margin-bottom: 60px;
+
+    @media (max-width: $break-sm) {
+        margin: 0 !important;
+    }
+}
+
+.c-cloud-target {
+    padding-bottom: 4.75rem;
+}
+
+// specificate indentification
+#main-drawer-mobile-si {
+    top: 0px !important;
+}
+
+// specificate indentification
+#main-drawer-mobile-si,
+#h-mobile-menu-si {
+    display: block;
+    position: fixed;
+    z-index: $zindex__navigation + 20;
+}
+
+// specificate indentification
+#h-mobile-menu-si {
+    transform: translate(0, 0);
+    transition: all 500ms cubic-bezier(1, 0, 0, 1) 0ms,
+        all 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    padding-left: 0;
+}

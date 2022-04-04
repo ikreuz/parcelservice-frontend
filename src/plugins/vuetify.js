@@ -28,13 +28,9 @@ export default new Vuetify({
 
     themes: {
       light: {
-        primary: "#0b31ae",
+        primary: "#0265FA",
         secondary: "#FFF24D",
         accent: "#8c9eff",
-        error: "#b71c1c",
-        info: "#2196F3",
-        success: "#4CAF50",
-        warning: "#FFC107",
         white: "#fff",
 
         clara: "#01B283",
@@ -42,6 +38,7 @@ export default new Vuetify({
         anderson: "#34495E",
         ember: "#232f3e",
         bunker: "#292D33",
+        background: "#f5f5f7",
       },
     },
   },

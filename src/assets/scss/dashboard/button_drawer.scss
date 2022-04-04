@@ -1,0 +1,126 @@
+.global-nav-toggle {
+    left: 0 !important;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: .93rem 1rem;
+
+    @media screen and (max-width: $break-sm) {
+        display: block;
+    }
+
+    @media screen and (max-width: $break-sm) {
+        margin: 0 !important;
+    }
+
+    .active i {
+
+        &::before,
+        &::after {
+            background: #fff;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        border-bottom: none !important;
+    }
+
+    i {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        left: 0;
+        top: -4px;
+        text-indent: -55px;
+        background: #fff;
+
+        &::before {
+            width: 16px;
+        }
+
+        &::after {
+            width: 12px;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            height: 2px;
+            background: #fff;
+            position: absolute;
+            left: 0;
+            transition: all 0.2s ease-out;
+        }
+    }
+}
+
+.global-nav-toggle i::before {
+    top: -7px;
+}
+
+.global-nav-toggle i::after {
+    bottom: -8px;
+}
+
+.global-nav-toggle:hover i {
+    width: 20px;
+}
+
+.global-nav-toggle:hover i::before {
+    width: 24px;
+}
+
+.global-nav-toggle:hover i::after {
+    width: 27px;
+}
+
+.global-nav-toggle.active i {
+    background: transparent;
+
+    &:hover {
+        width: 20px !important;
+    }
+}
+
+.global-nav-toggle.active i::before {
+    top: 0;
+    transform: rotate(45deg);
+    width: 20px !important;
+    background: #fff !important;
+
+    &:hover {
+        width: 20px !important;
+    }
+}
+
+.global-nav-toggle.active i::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+    width: 20px !important;
+    background: #fff !important;
+
+    &:hover {
+        width: 20px !important;
+    }
+}
+
+#global-nav-toggle {
+    background-color: transparent !important;
+
+    &::before {
+        background-color: transparent !important;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: transparent !important;
+    }
+}

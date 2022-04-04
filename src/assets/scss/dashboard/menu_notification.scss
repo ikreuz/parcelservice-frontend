@@ -1,0 +1,62 @@
+.parcel-masthead {
+    &__btn {
+        height: 43px !important;
+        min-width: 43px !important;
+        padding: 0 !important;
+        margin: 0 4px 0 0 !important;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.parcel-notifications-btn {
+    border-radius: 4px;
+    transition-duration: 200ms;
+    transition: all 0.2s;
+
+    [class*="mdi"],
+    [class^="mdi"] {
+        font-size: 24px !important;
+        color: $geist-text !important;
+    }
+}
+
+.parcel-toolbar-notif {
+    &__body {
+        min-height: 200px !important;
+        height: 200px !important;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__header {
+        min-height: 33px !important;
+    }
+
+    &__list {
+        border-bottom: 1px solid #dfe6e6 !important;
+        display: flex;
+        text-align: center;
+        align-items: center;
+
+        &-item {
+            &-action {
+                margin: 0 !important;
+            }
+        }
+
+        .v-list-item__icon:first-child,
+        &-icon {
+            margin-right: 19px !important;
+        }
+    }
+
+    &__title {
+        transition-duration: 200ms;
+        transition: all 0.2s;
+    }
+}

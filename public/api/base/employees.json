@@ -1,0 +1,24 @@
+{
+  "count": 1,
+  "entries": [
+    {
+      "user_id": 1,
+      "mid": "67e276d4-7d6c-8330-c823-7d62ccd35a95",
+      "auth": "00Ji2ltAr/B8b9JvZAnaKQbYibEjQErONs+8+Zkfo+0=",
+      "app_user": "",
+      "firstname": "Camina",
+      "lastname": "Drummer",
+      "email": "drummer@fake.com",
+      "username": "drummer",
+      "password": "p4Rc3!1234",
+      "activity_status": false,
+      "activity_status_txt": "Inactive",
+      "app_user_type": 1,
+      "app_user_type_txt": "Employee",
+      "date_creation": "",
+      "date_modification": "",
+      "usr_creates_id": 1,
+      "usr_modifies_id": 0
+    }
+  ]
+}

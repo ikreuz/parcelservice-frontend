@@ -1,0 +1,26 @@
+#global-nav-search-si {
+    z-index: $zindex__searchbox !important;
+
+    .card-search-menu {
+        top: 0 !important;
+    }
+}
+
+#card-search-wrapper-si {
+    z-index: $zindex__card-searchbox !important;
+}
+
+.card-search__container {
+    padding: 0 !important;
+    // width: 13rem !important;
+}
+
+.card-search {
+    &__wrapper {
+        padding: 4px !important;
+    }
+
+    &__input-data {
+        height: 2.5rem !important;
+    }
+}

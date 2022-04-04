@@ -1,5 +1,17 @@
-@import './common/base.scss';
-@import './common/body.scss';
-@import './common/custom_vue.scss';
-@import './common/transition.scss';
 @import './common/variables.scss';
+@import './common/base.scss';
+@import './common/custom_vue.scss';
+@import './common/body.scss';
+@import './common/transition.scss';
+@import "./common/shadow.scss";
+@import "./common/scroll.scss";
+
+@import './dashboard/app_dashboard.scss';
+@import './dashboard/navbar.scss';
+@import './dashboard/inputs.scss';
+@import './dashboard/button_drawer.scss';
+@import './dashboard/menu_account.scss';
+@import './dashboard/menu_notification.scss';
+@import './dashboard/search_box.scss';
+@import './dashboard/main_drawer.scss';
+@import './dashboard/side_drawer.scss'

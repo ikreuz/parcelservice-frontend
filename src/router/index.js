@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 //
 import multiguard from "vue-router-multiguard";
-import { guardian_1, guardian_2 } from "../guardian/guardians";
+import { guardian_1 } from "../guardian/guardians";
 import auth from "../middleware/auth";
 import isLoggedIn from "../middleware/is_logged";
 
@@ -17,7 +17,7 @@ const routes = [
       import(
         /* webpackChunkName: "Parcel" */ "@/layouts/dashboard/AppDashboard.vue"
       ),
-    beforeEnter: multiguard([isLoggedIn, guardian_1, guardian_2]),
+    beforeEnter: multiguard([isLoggedIn, guardian_1]),
     meta: { requireAuth: true, middleware: auth },
     children: [
       {
@@ -25,6 +25,30 @@ const routes = [
         name: "Home",
         component: () =>
           import(/* webpackChunkName: "Home" */ "../views/Home.vue"),
+        props: true,
+        meta: { requireAuth: true, middleware: auth },
+      },
+      {
+        path: "/guide",
+        name: "Guide",
+        component: () =>
+          import(/* webpackChunkName: "Guide" */ "../views/Guide.vue"),
+        props: true,
+        meta: { requireAuth: true, middleware: auth },
+      },
+      {
+        path: "/employee",
+        name: "Employee",
+        component: () =>
+          import(/* webpackChunkName: "Employee" */ "../views/Employee.vue"),
+        props: true,
+        meta: { requireAuth: true, middleware: auth },
+      },
+      {
+        path: "/customer",
+        name: "Customer",
+        component: () =>
+          import(/* webpackChunkName: "Customer" */ "../views/Customer.vue"),
         props: true,
         meta: { requireAuth: true, middleware: auth },
       },

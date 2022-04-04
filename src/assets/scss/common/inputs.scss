@@ -1,0 +1,22 @@
+.parcel-input {
+    transition: border 0.3s ease, color 0.3s, background-color 0.3s;
+    height: 2.5rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    color: $geist-text !important;
+
+    &:hover {
+        background: #fff !important;
+        background-color: #fff !important;
+
+    }
+
+    .is-input-valid {
+
+        [class*="mdi"],
+        [class^="mdi"] {
+            color: $geist-primary !important;
+        }
+    }
+}

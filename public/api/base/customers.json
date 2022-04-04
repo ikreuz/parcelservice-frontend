@@ -1,0 +1,64 @@
+{
+  "count": 1,
+  "entries": [
+    {
+      "id": 1,
+      "id_text": "1",
+      "mid": "c23c2d75-7fb0-fbcc-be63-e3cd26e0dc72",
+      "auth": "0NNJ3ZwPbuJY10nu/Oqa9EfMrj0nuoIXrSKWXsNPS0w=",
+      "cliente": "Anakin Skywalker",
+      "nombre_comercial": "Vader System",
+      "razon_social": "Vader System XY de ZW",
+      "rfc": "SAA220503GG7",
+      "email": "anakin@fake.com",
+      "lada": "55",
+      "celular": "123412341234",
+      "tel_1": "123456789",
+      "tel_2": "",
+      "tel_800": "",
+      "tipo_tercero_id": 1702,
+      "tipo_tercero": "Nacional",
+      "rol": "Usuario Online",
+      "c_convenio": "true",
+      "tipo": "Cliente convenio",
+      "tipo_licencia": "Starter",
+      "codigo_licencia": "Mercury",
+      "domicilio": {
+        "codigo_postal": "3214",
+        "calle": "Imperio Galactico",
+        "n_exterior": "1234",
+        "n_interior": "532",
+        "colonia": "Imperio Galactico",
+        "ciudad": "Guadalajara",
+        "municipio": "Guadalajara",
+        "entidad_id": 17,
+        "entidad": "Jalisco",
+        "pais_id": 4003,
+        "pais": "Estados Unidos Mexicanos",
+        "referencias": "Referencia 1",
+        "observaciones": "Observacion 1"
+      },
+      "licencia": {
+        "licencia_codigo_id": 1493,
+        "licencia_codigo": "Iron",
+        "licencia_precio_id": 1483,
+        "licencia_precio": "719.00",
+        "licencia_estado": false,
+        "licencia_cancelada": false,
+        "licencia_llave": "eda5ea36-430b-4217-afc1-9281bd75e8d3",
+        "licencia_monto_mensual": 549.0,
+        "licencia_descripcion": "Licencia de prueba a 101 dias",
+        "licencia_dias_validos": 101
+      },
+      "convenio": {
+        "tipo_pago_id": 39,
+        "autorizado": false,
+        "c_credito": true,
+        "c_convenio": true,
+        "plazo": 30,
+        "monto_max": 1000,
+        "prcn_descuento_id": 1796
+      }
+    }
+  ]
+}

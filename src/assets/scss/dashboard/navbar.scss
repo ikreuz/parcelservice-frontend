@@ -1,0 +1,226 @@
+#appbar-si {
+    .appbar--its-up {
+        position: relative !important;
+        width: 100%;
+    }
+
+    .appbar--is-under {
+        position: fixed !important;
+        width: 100%;
+    }
+}
+
+#global-nav-si {
+    width: 100%;
+    transition-duration: 0.6s;
+    z-index: $zindex__navigation;
+
+    @media (max-width: $break-sm) {
+        transform: translate(0, 0);
+        padding-left: 56px;
+    }
+}
+
+#global-nav-login-si {
+
+    border: 1px solid transparent;
+
+    .login-btn__label {
+        font-size: 13px;
+    }
+
+    &:hover {
+        border: 1px solid #fff;
+    }
+}
+
+#global-nav-search-si {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+
+    @media (max-width: $break-sm) {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.global-nav__bg {
+    background-color: $geist-primary;
+}
+
+.global-nav__wrap {
+    padding: 5px 10px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.global-nav__content {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    transition-duration: 200ms;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px !important;
+    width: 56px;
+    transform: translateY(0px);
+    left: 0px;
+    right: 0px;
+}
+
+.global-nav__content-title {
+    width: 100px;
+}
+
+.global-nav__title {
+    width: 100px !important;
+    margin: 0 auto !important;
+    margin-left: 0 !important;
+}
+
+.global-nav__brand-title {
+    width: 100px !important;
+    left: 20px;
+    justify-content: center !important;
+}
+
+.global-nav__brand {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: none !important;
+    text-decoration: none;
+    transition-duration: 0.6s;
+    z-index: 1100;
+}
+
+.global-nav {
+    width: 100%;
+    padding: 0 !important;
+
+    &__inner {
+        display: flex;
+        height: 48px !important;
+        padding-left: 56px;
+        padding-right: 2%;
+        justify-content: space-between;
+        transform: translate(0px, 0px);
+        transition: all 500ms cubic-bezier(1, 0, 0, 1) 0ms,
+            all 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+    }
+
+    [data-link="nav-mpm"] {
+        transform: translate(0px, 0px);
+        transition: all 500ms cubic-bezier(1, 0, 0, 1) 0ms,
+            all 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+
+        @media (max-width: $break-sm) {
+            transform: translate(30%, 0);
+            padding-left: 0;
+        }
+    }
+
+    &__container {
+        margin: 7px;
+    }
+
+    &__row {
+        left: 0;
+        top: 0;
+        width: 80px;
+        display: block;
+        z-index: 1040;
+        transition: all 500ms cubic-bezier(1, 0, 0, 1) 0ms,
+            all 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+        height: 48px !important;
+        margin-top: 0px;
+        transform: translateY(0px);
+        left: 0;
+
+        position: relative;
+    }
+
+    &__link {
+        font-size: 16px;
+        padding: 10px 20px;
+        font-weight: 600;
+        text-transform: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+        padding: 4px 1px;
+        transition-duration: 0.6s;
+        color: $geist-text;
+    }
+
+    &__link-wrapper {
+        position: relative;
+        white-space: nowrap;
+
+        :hover {
+            >a {
+                color: $geist-text !important;
+                border-bottom: 2px solid $geist-text;
+            }
+        }
+    }
+
+    .activated {
+        color: $geist-text !important;
+        border-bottom: 2px solid $geist-text !important;
+    }
+}
+
+.global-nav__menu .global-nav__link-wrapper:hover>a {
+    color: $geist-text !important;
+    border-bottom: 2px solid $geist-text !important;
+}
+
+
+.global-nav__menu .menu {
+    display: flex;
+    align-items: center;
+    transition: all 500ms cubic-bezier(1, 0, 0, 1) 0ms,
+        all 500ms cubic-bezier(1, 0, 0, 1) 0ms;
+
+    @media screen and (max-width: $break-sm) {
+        .menu-folio {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}
+
+#menu-si {
+    .menu-folio {
+        @media (max-width: 768px) {
+            display: none !important;
+        }
+    }
+}
+
+#signin {
+    @media screen and (min-width: $tablet) {
+        display: block;
+    }
+}
+
+.folio-count {
+    font-family: $font-primary !important;
+    height: 30px !important;
+    padding: 0 9px !important;
+    margin: 0 9px;
+}
+
+[data-view-name="view-folio-count"] {
+    color: $geist-text;
+}

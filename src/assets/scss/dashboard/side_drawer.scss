@@ -1,0 +1,30 @@
+#side-drawer-si {
+    position: fixed;
+    width: 56px;
+    top: 97px !important;
+    background-color: $geist-background;
+    transition: transform 0.1s ease-in-out !important;
+    transform: translateY(0) !important;
+    z-index: $zindex__header - 1 !important;
+
+}
+
+#side-btn-si {
+    animation-duration: 0.24s !important;
+    transition: transform 0.19s !important;
+
+    [class^="mdi"],
+    [class*="mdi"] {
+        font-size: 17px !important;
+    }
+}
+
+.v-navigation-drawer #side-btn-si {
+    transform: translateX(200px);
+}
+
+.v-navigation-drawer--mini-variant {
+    #side-btn-si {
+        transform: translateX(0);
+    }
+}

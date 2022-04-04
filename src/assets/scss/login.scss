@@ -1,6 +1,12 @@
-@import './common/body.scss';
-@import './common/custom_vue.scss';
-@import './common/transition.scss';
-@import './common/variables.scss';
+@import "./common/variables.scss";
+@import "./common/base.scss";
+@import "./common/buttons.scss";
+@import "./common/custom_vue.scss";
+@import "./common/card_presentation.scss";
+@import "./common/body.scss";
+@import "./common/inputs.scss";
+@import "./common/scroll.scss";
+@import "./common/transition.scss";
+@import "./common/shadow.scss";
 
-@import './login/login.scss'
+@import './login/login.scss';

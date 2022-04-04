@@ -1,80 +1,105 @@
 <template>
   <v-app>
     <div class="c-target c-target-bg">
-      <v-card max-width="400" class="auth-panel auth-panel--size">
-        <v-container>
-          <v-card class="noshadow">
+      <v-card
+        id="auth-lock-panel"
+        class="auth-lock-panel auth-lock-panel--size shadow-smallest"
+      >
+        <v-progress-linear
+          :active="loading"
+          :indeterminate="loading"
+          absolute
+          top
+          color="primary"
+        ></v-progress-linear>
+        <v-container class="scroller">
+          <v-card class="noshadow card-invoice-aditional">
             <figure class="disflex">
               <img width="80" src="../assets/img/logo.svg" alt="Parcel logo" />
             </figure>
           </v-card>
           <form
+            ref="form"
             lazy-validation
-            id="auth-login-form-si"
-            class="auth-login-form"
+            scrollable
+            class="auth-lock-form"
             @submit.prevent="postLogin"
           >
-            <div class="auth-content auth-field">
-              <v-flex class="disflex">
-                <v-card class="noshadow w-full">
-                  <v-col cols="12" class="auth-wrapper-input">
-                    <div class="auth-input-data">
-                      <v-text-field
-                        id="auth-field"
-                        class="auth-input"
-                        solo
-                        dense
-                        required
-                        type="text"
-                      >
-                      </v-text-field>
-                    </div>
-                  </v-col>
-                  <v-col cols="12" class="auth-wrapper-input">
-                    <div class="auth-input-data">
-                      <v-text-field
-                        id="auth-another-field"
-                        class="auth-input"
-                        solo
-                        dense
-                        required
-                        type="text"
-                      >
-                      </v-text-field>
-                    </div>
-                  </v-col>
-                </v-card>
-              </v-flex>
+            <div data-input-type="text-field" data-layout="layout-item-input">
+              <v-col cols="12" class="wrapper-input-5">
+                <div class="wrapper">
+                  <div class="parcel-input-data">
+                    <v-text-field
+                      id=""
+                      class="parcel-input"
+                      ref=""
+                      solo
+                      dense
+                      persistent-hint
+                      placeholder="drummer@fake.com"
+                      type="email"
+                      v-model="user.email"
+                      value="drummer@fake.com"
+                      @focus.prevent="focusedPassword = true"
+                      @blur.prevent="focusedPassword = false"
+                      :rules="[rules.required, rules.email]"
+                    ></v-text-field>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" class="wrapper-input-5">
+                <div class="wrapper">
+                  <div class="parcel-input-data">
+                    <v-text-field
+                      id=""
+                      class="parcel-input"
+                      ref=""
+                      solo
+                      dense
+                      persistent-hint
+                      placeholder="p4Rc3!1234"
+                      v-model="user.password"
+                      value="p4Rc3!1234"
+                      :append-icon="showEye ? 'mdi-eye' : 'mdi-eye-off'"
+                      :type="showEye ? 'text' : 'password'"
+                      @click:append="showEye = !showEye"
+                      @focus.prevent="focusedPassword = true"
+                      @blur.prevent="focusedPassword = false"
+                      :rules="[rules.password, rules.counter]"
+                    ></v-text-field>
+                  </div>
+                </div>
+              </v-col>
             </div>
-            <div class="auth-wrapper">
-              <v-btn
-                color="anderson"
-                type="submit"
-                elevation="1"
-                class="auth-btn"
-              >
-                <span class="">Continue</span>
-              </v-btn>
+            <div class="wrapper-input-5">
+              <div class="wrapper">
+                <v-btn
+                  type="submit"
+                  class="parcel-btn parcel-btn--bg w-full"
+                  elevation="1"
+                  :loading="loading"
+                  :disabled="loading"
+                >
+                  <span class="parcel-btn--title">Next</span>
+                </v-btn>
+              </div>
             </div>
           </form>
-          <div class="wrapper">
-            <span class="recaptcha">
-              This site is protected by reCAPTCHA and the Google
+
+          <div class="wrapper-input-5">
+            <span class="recaptcha"
+              >This site is protected by reCAPTCHA and the Google
               <a
-                href="https://policies.google.com/privacy?h1=en"
+                href="https://policies.google.com/privacy?hl=en"
                 target="_blank"
-                class="auth-text"
                 >Privacy Policy</a
               >
               and
-              <a
-                href="https://policies/google.com/terms?h1=en"
-                target="_blank"
-                class="auth-text"
+              <a href="https://policies.google.com/terms?hl=en" target="_blank"
                 >Terms of Service</a
               >
-              apply
-            </span>
+              apply</span
+            >
           </div>
         </v-container>
       </v-card>
@@ -84,14 +109,14 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-// import { required, minLength, maxLength, numeric } from "vuelidate/validators";
+import { required, email } from "vuelidate/lib/validators";
 import { isEmpty, isBlank } from "@/services/srv_utils.js";
 import srvToasted from "@/services/srv_toasted.js";
-// import srvAxios from "@/services/src_axios.js";
+import srvAxios from "../services/srv_axios";
 import ParcelUtils from "@/assets/js/parcel_utils.js";
 import jsCrypto from "crypto-js";
 import jsCookie from "js-cookie";
-// import moment from "moment";
+import moment from "moment";
 
 export default {
   mixins: [validationMixin],
@@ -99,7 +124,26 @@ export default {
   metaInfo: {
     title: "Login",
   },
-  validations: {},
+  validations: {
+    user: {
+      email: { required, email },
+      password: {
+        required,
+        containsUppercas: function (value) {
+          return /[A-Z]/.test(value);
+        },
+        containsLowercase: function (value) {
+          return /[a-z]/.test(value);
+        },
+        containsNumber: function (value) {
+          return /[0-9]/.test(value);
+        },
+        containsSpecial: function (value) {
+          return /[#?!@$%^*&-]/.test(value);
+        },
+      },
+    },
+  },
   middleware: "",
   props: {},
   components: {},
@@ -118,27 +162,73 @@ export default {
     loading: false,
     submitted: false,
     rules: {
-      //   required: (value) => !!value || "Required.",
+      required: (value) => !!value || "Required",
+      min: (v) => v.length >= 8 || "Almost 8 characters",
+      counter: (value) => value.length <= 15 || "Maximun 15 characters",
+      email: (value) => {
+        const pattern =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return pattern.test(value) || "E-mail is invalid";
+      },
+      password: (value) => {
+        const pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        return pattern.test(value) || "Required";
+      },
     },
-    endPoints: {},
     customerProfile: {},
-    profile: [],
+    user: {
+      email: "",
+      password: "",
+    },
+    focusedPassword: false,
+    focusedEmail: false,
+    //
+    submitStatus: null,
+    submitError: false,
+    submitWarning: false,
+    submitSuccess: false,
+    showEye: false,
+    showProgress: false,
+    recaptchaToken: null,
+    employeesFromJson: [],
+    customersFromJson: [],
+    rolesFromJson: [],
+    employeesEntries: {},
+    customersEntries: {},
+    rolesEntries: {},
+    appStoreEmail: "",
+    appStorePassword: "",
+    appStoreUserName: "",
+    appStoreUserId: "",
+    startDate: "",
+    lastDate: "",
   }),
   computed: {},
-  watch: {},
+  watch: {
+    loading(val) {
+      if (!val) return;
+
+      setTimeout(() => (this.loading = false), 3000);
+    },
+  },
   // Hooks
   beforeCreate() {},
   created() {},
   beforeMount() {},
-  mounted() {
+  async mounted() {
     this.recaptcha();
+    this.loadRequest();
     this.signOut();
+    this.parcelCls.addClass(document.body, this.parcelCls.getWebBrowserType());
+    this.parcelCls.addClass(document.body, this.parcelCls.getDeviceType());
+    this.parcelCls.addClass(document.body, this.parcelCls.getOsType());
   },
   beforeUpdate() {},
   updated() {},
   beforeDestroy() {},
   destroyed() {},
   methods: {
+    loadRequest() {},
     async recaptcha() {
       try {
         /**  load the recaptcha */
@@ -146,11 +236,11 @@ export default {
         /** run recaptcha with the action login  */
         this.recaptchaToken = await this.$recaptcha("login");
         /** validate the token */
-        // console.log(
-        //   `parcel@: The recaptcha/Token is ${
-        //     this.recaptchaToken ? "TRUE" : "FALSE"
-        //   }`
-        // );
+        console.log(
+          `parcel@: The recaptcha/Token is ${
+            this.recaptchaToken ? "TRUE" : "FALSE"
+          }`
+        );
       } catch (e) {
         this.error = e.message;
       }
@@ -170,25 +260,83 @@ export default {
         this.error = err.message;
       }
     },
+    getLastTime() {
+      this.lastDate = new Date().getTime();
+      this.lastDate = new Date().getTime - this.lastDate;
+      moment.defaultFormat = "YYYY.DD.MM HH:mm:ss.SSS";
+      this.startDate = moment().format();
+    },
     async postLogin() {
+      this.loading = !this.loading;
+      this.submitted = true;
+      this.loading = true;
+      this.$v.$touch();
+
+      if (this.$v.$invalid) {
+        this.loading = false;
+        this.submitStatus = "ERROR";
+
+        return; // stop here if form is invalid
+      }
+
+      if (isEmpty(this.recaptchaToken)) return;
+
+      this.getLastTime();
+
+      this.employeesFromJson = await srvAxios("/api/base/employees.json");
+      this.customersFromJson = await srvAxios("/api/base/customers.json");
+      this.rolesFromJson = await srvAxios("/api/base/roles.json");
+      this.$store.dispatch("axnGuardianEmployees", this.employeesFromJson);
+      this.$store.dispatch("axnGuardianCustomers", this.customersFromJson);
+      this.$store.dispatch("axnGuardianRoles", this.rolesFromJson);
+      this.employeesEntries = this.employeesFromJson.entries;
+      this.customersEntries = this.customersFromJson.entries;
+
+      for (let index = 0; index < this.employeesEntries.length; index++) {
+        if (this.employeesEntries[index].email === this.user.email) {
+          this.appStoreEmail = this.employeesEntries[index].email;
+          this.appStorePassword = this.employeesEntries[index].password;
+          this.appStoreUserName = this.employeesEntries[index].username;
+          this.appStoreUserId = this.employeesEntries[index].user_id;
+        }
+      }
+
       srvToasted("Test", this.toasted.CUSTOM, "mdi mdi-alert-box-outline");
+
       if (isEmpty(this.recaptchaToken) && isBlank(this.recaptchaToken)) {
         srvToasted("The token is null", this.toasted.ERROR, "mdi mdi-alert");
       }
+
       try {
         srvToasted("Authorized User", this.toasted.CUSTOM, "mdi mdi-check");
-        const auth = { accessToken: "apiServiceWithAjax" };
+        const auth = {
+          accessToken: "apiServiceWithAjax",
+          userId: this.appStoreUserId,
+          email: this.appStoreEmail,
+          username: this.appStorePassword,
+          password: this.appStoreUserName,
+          startDate: this.startDate,
+        };
+
         let ciphertext = jsCrypto.AES.encrypt(
           JSON.stringify(auth),
           "1234"
         ).toString();
+        console.log(ciphertext);
         jsCookie.set("access_token", ciphertext); // saving token in cookie for server rendering
+
         localStorage.setItem("access_token", ciphertext);
-        this.$store.dispatch("axnAutenticated", true);
+
+        this.$store.dispatch("axnLogin", this.user);
+        this.$store.dispatch("axnAuthenticated", true);
         this.$store.dispatch("axnAuth", ciphertext);
         this.$router.push("/");
       } catch (err) {
         this.error = err.message;
+        this.submitStatus = "Error";
+        this.submitError = true;
+        this.submitted = false;
+        this.loading = false;
       }
     },
   },
@@ -197,5 +345,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "@/assets/scss/common/variables.scss";
 </style>
