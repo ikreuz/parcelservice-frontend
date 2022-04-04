@@ -25,6 +25,12 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
+### Screenshot
+
+![](./design/basic_dashboard.png)
+![](./design/login.png)
+
+
 ### Links
 - Solution URL: [https://github.com/ikreuz](https://github.com/ikreuz/parcelservice-frontend)
 - Live Site URL: [https://vercel.com](https://parcelservice-frontend.vercel.app/login)
