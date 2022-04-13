@@ -279,7 +279,7 @@ export default {
         return; // stop here if form is invalid
       }
 
-      if (isEmpty(this.recaptchaToken)) return;
+      //if (isEmpty(this.recaptchaToken)) return;
 
       this.getLastTime();
 
